@@ -1,0 +1,2 @@
+﻿Add-Migration InitialCreate -Project Request.Infrastructure
+Update-Database InitialCreate -Project Request.Infrastructure

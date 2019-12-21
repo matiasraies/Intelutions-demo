@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AWeb.Models.PermissionViewModel>
+
+@{
+    ViewData["Title"] = "Permisos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Listado</h1>
+
+<p>
+    <a asp-action="Create">Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermissionType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermissionDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeLastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PermissionType.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PermissionDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
